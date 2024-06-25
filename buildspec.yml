@@ -1,9 +1,5 @@
 version: 0.2
 
-env:
-  parameter-store:
-    S3Bucket: "/MyCICDPipeline/S3Bucket"
-
 phases:
   install:
     runtime-versions:
@@ -13,13 +9,12 @@ phases:
   build:
     commands:
       - npm run build
-
   post_build:
     commands:
-      - aws s3 sync build/ s3://$S3Bucket/ 
+      - aws s3 sync build/ s3://$S3_BUCKET --delete
+      - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths '/*'
 
 artifacts:
   files:
     - '**/*'
   base-directory: build
-  discard-paths: yes
