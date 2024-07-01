@@ -19,7 +19,7 @@ phases:
   post_build:
     commands:
       - echo Syncing build output to S3...
-      - aws s3 sync build/ s3://$APP_BUCKET_NAME/ --delete
+      - aws s3 sync build/ s3://${APP_BUCKET_NAME}/ --delete
 
 artifacts:
   files:
