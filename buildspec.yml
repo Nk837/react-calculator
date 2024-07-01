@@ -16,8 +16,7 @@ phases:
       
   post_build:
     commands:
-      - aws s3 sync build/ s3://$AppBucketName/ --delete
-      - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths '/*'
+      - aws s3 sync build/ s3://$AppBucketName/
 
 artifacts:
   files:
