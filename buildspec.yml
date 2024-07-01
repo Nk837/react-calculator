@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 14 # You can specify the Node.js version you need
+      nodejs: 12 # You can specify the Node.js version you need
     commands:
       - echo Installing dependencies...
       - npm install
