@@ -1,5 +1,9 @@
 version: 0.2
 
+env:
+  parameter-store:
+    S3Bucket: "/MyCICDPipeline/AppBucketName"
+
 phases:
   install:
     runtime-versions:
