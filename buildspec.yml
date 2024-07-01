@@ -1,5 +1,9 @@
 version: 0.2
 
+env:
+  variables:
+    APP_BUCKET_NAME: $AppBucketName
+
 phases:
   install:
     runtime-versions:
