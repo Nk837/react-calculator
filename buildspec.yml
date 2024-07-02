@@ -1,8 +1,8 @@
 version: 0.2
 
-# env:
-#   variables:
-#     APP_BUCKET_NAME: $AppBucketName
+env:
+  variables:
+    APP_BUCKET_NAME: $AppBucketName
 
 phases:
   install:
@@ -10,6 +10,7 @@ phases:
       nodejs: 12 # You can specify the Node.js version you need
     commands:
       - echo Installing dependencies...
+      - npm install -g aws-cli.
       - npm install
   build:
     commands:
@@ -19,9 +20,10 @@ phases:
   post_build:
     commands:
       - echo Syncing build output to S3...
-      # - aws s3 sync build/ s3://${APP_BUCKET_NAME}/ --delete
+      - aws s3 sync build/ s3://${APP_BUCKET_NAME}/ --delete
 
 artifacts:
   files:
     - '**/*'
+  base-directory: build
   discard-paths: yes
