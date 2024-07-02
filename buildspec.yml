@@ -10,7 +10,7 @@ phases:
       nodejs: 12 # You can specify the Node.js version you need
     commands:
       - echo Installing dependencies...
-      - npm install -g aws-cli.
+      - npm install -g aws-cli
       - npm install
   build:
     commands:
