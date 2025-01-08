@@ -1,29 +1,29 @@
-version: 0.2
+# version: 0.2
 
-env:
-  parameter-store:
-    AppBucketName: "/MyCICDPipeline/AppBucketName"
+# env:
+#   parameter-store:
+#     AppBucketName: "/MyCICDPipeline/AppBucketName"
 
-phases:
-  install:
-    runtime-versions:
-      nodejs: 12 # You can specify the Node.js version you need
-    commands:
-      - echo Installing dependencies...
-      - npm install -g aws-cli
-      - npm install
-  build:
-    commands:
-      - echo Build started on `date`
-      - npm run build
-      - echo Build completed on `date`
-  post_build:
-    commands:
-      - echo Syncing build output to S3...
-      - aws s3 sync build/ s3://$AppBucketName/ --delete
+# phases:
+#   install:
+#     runtime-versions:
+#       nodejs: 12 # You can specify the Node.js version you need
+#     commands:
+#       - echo Installing dependencies...
+#       - npm install -g aws-cli
+#       - npm install
+#   build:
+#     commands:
+#       - echo Build started on `date`
+#       - npm run build
+#       - echo Build completed on `date`
+#   post_build:
+#     commands:
+#       - echo Syncing build output to S3...
+#       - aws s3 sync build/ s3://$AppBucketName/ --delete
 
-artifacts:
-  files:
-    - '**/*'
-  base-directory: build
-  discard-paths: yes
+# artifacts:
+#   files:
+#     - '**/*'
+#   base-directory: build
+#   discard-paths: yes
