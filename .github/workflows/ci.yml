@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: '12.x'
 
       - name: Cache Node.js modules
         uses: actions/cache@v2
@@ -30,7 +30,9 @@ jobs:
             ${{ runner.os }}-node-modules-
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm install -g aws-cli
+          npm install
 
       - name: Run tests
         run: npm test -- --detectOpenHandles
