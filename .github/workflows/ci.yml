@@ -35,7 +35,7 @@ jobs:
       - name: Run tests
         run: npm test -- --detectOpenHandles
 
-  build:
+  predeploy:
     runs-on: ubuntu-latest
     needs: build-and-test
     steps:
