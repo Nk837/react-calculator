@@ -32,6 +32,9 @@ jobs:
       - name: build project
         run: npm run build
 
+      - name: List directory contents
+        run: ls -R
+
   deploy:
     needs: build-and-test
     runs-on: ubuntu-latest
