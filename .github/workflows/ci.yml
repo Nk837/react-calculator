@@ -33,7 +33,7 @@ jobs:
         run: npm run build
 
       - name: List directory contents
-        run: ls -R
+        run: ls -R ./build/
 
   deploy:
     needs: build-and-test
