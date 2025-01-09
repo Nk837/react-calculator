@@ -21,20 +21,13 @@ jobs:
         with:
           node-version: '20.x'
 
+      - name: build project
+        run: npm run build
+
       - name: Install dependencies
         run: |
           npm install -g aws-cli
           npm install
-
-  build:
-    runs-on: ubuntu-latest
-    needs: build-and-test
-    steps:
-      - name: check out code
-        uses: actions/checkout@v3
-
-      - name: build project
-        run: npm run build
 
   # deploy:
   #   needs: build
