@@ -14,20 +14,23 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
 
-      - name: build project
-        run: npm run build
+      - name: Clear npm cache
+        run: npm cache clean --force
 
       - name: Install dependencies
         run: |
           npm install -g aws-cli
           npm install
+
+      - name: build project
+        run: npm run build
 
   # deploy:
   #   needs: build
