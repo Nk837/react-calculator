@@ -35,7 +35,7 @@ jobs:
 
       - name: Check if build directory exists
         run: |
-          if [ ! -d "./build" ]; then
+          if [ ! -d "./build/" ]; then
             echo "Error: Build directory does not exist."
             exit 1
           fi
