@@ -50,5 +50,5 @@ jobs:
 
       - name: Deploy to AWS
         run: |
-          cd 
+          cd ../..
           aws s3 cp ./build/ s3://react-calculator-build/ --recursive
