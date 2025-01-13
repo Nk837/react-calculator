@@ -19,22 +19,32 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20.x'
+          node-version: '16.x'
 
       - name: Clear npm cache
-        run: npm cache clean --force
+        run: |
+          npm cache clean --force
+          git rm -r --cached build/
 
       - name: Install dependencies
         run: |
           npm install -g aws-cli
-          npm install
+          npm ci
+
+      - name: Run Test
+        run: npm test -- --passWithNoTest
 
       - name: build project
         run: npm run build
 
-      - name: List directory contents
+      - name: Check if build directory exists
         run: |
-          sudo find / -type d -name "build"
+          if [ ! -d "./build" ]; then
+            echo "Error: Build directory does not exist."
+            exit 1
+          fi
+          git check-ignore
+          
 
 
   deploy:
