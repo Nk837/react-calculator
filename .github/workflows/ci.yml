@@ -49,4 +49,4 @@ jobs:
           aws-region: ap-south-1
 
       - name: Deploy to AWS
-        run: aws s3 cp ./build/ s3://react-calculator-build/ --recursive
+        run: aws s3 cp -r ./build/ s3://react-calculator-build/ 
