@@ -50,4 +50,4 @@ jobs:
 
       - name: Deploy to AWS
         run: |
-          aws s3 sync ./build/ s3://react-calculator-build/ --recursive
+          aws s3 sync ./build/ s3://react-calculator-build/
