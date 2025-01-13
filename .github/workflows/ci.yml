@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm install -g aws-cli
-          npm ci
+          npm install
 
       - name: Run Test
         run: npm test -- --passWithNoTest
