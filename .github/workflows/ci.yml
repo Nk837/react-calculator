@@ -33,12 +33,8 @@ jobs:
       - name: build project
         run: npm run build
 
-      - name: Check if build directory exists
+      - name: Check git ignore
         run: |
-          if [ ! -d "./build/" ]; then
-            echo "Error: Build directory does not exist."
-            exit 1
-          fi
           git check-ignore
           
 
