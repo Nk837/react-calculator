@@ -34,7 +34,6 @@ jobs:
 
       - name: List directory contents
         run: |
-          ls -R ./build/
           sudo find / -type d -name "build"
 
 
@@ -54,4 +53,4 @@ jobs:
           aws-region: ap-south-1
 
       - name: Deploy to AWS
-        run: aws s3 cp /home/runner/work/react-calculator/react-calculator/build s3://react-calculator-build/ --recursive
+        run: aws s3 cp /home/runner/work/react-calculator/react-calculator/build/ s3://react-calculator-build/ --recursive
