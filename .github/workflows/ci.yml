@@ -33,12 +33,6 @@ jobs:
       - name: build project
         run: npm run build
 
-      - name: Check git ignore
-        run: |
-          git check-ignore
-          
-
-
   deploy:
     needs: build-and-test
     runs-on: ubuntu-latest
