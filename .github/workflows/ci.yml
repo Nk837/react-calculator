@@ -24,7 +24,6 @@ jobs:
       - name: Clear npm cache
         run: |
           npm cache clean --force
-          git rm -r --cached build/
 
       - name: Install dependencies
         run: |
