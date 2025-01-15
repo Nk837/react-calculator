@@ -41,8 +41,8 @@ jobs:
       - name: build project
         run: npm run build
 
-      # - name: remove node module
-      #   run: rm -rf ./node_modules
+      - name: remove node module
+        run: rm -rf /home/runner/work/react-calculator/react-calculator/node_modules
 
       - name: List build folder contents
         run: |
@@ -67,5 +67,5 @@ jobs:
 
       - name: Deploy to AWS
         run: |
-          sudo aws s3 cp ./. s3://react-calculator-build
+          sudo aws s3 cp ./ s3://react-calculator-build --recursive
           aws s3 ls s3://react-calculator-build/ --region ap-south-1
