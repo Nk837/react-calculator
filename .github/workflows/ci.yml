@@ -67,4 +67,4 @@ jobs:
 
       - name: Deploy to AWS
         run: |
-          sudo aws s3 cp  /home/runner/work/react-calculator/react-calculator/naveen/ s3://react-calculator-build --recursive
+          sudo aws s3 cp  /home/runner/work/react-calculator/react-calculator/README.md s3://react-calculator-build
