@@ -42,7 +42,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up AWS CLI
-        uses: jakejarvis/s3-sync-action@v.0.5.0
+        uses: jakejarvis/s3-sync-action@master
         with:
           entryPoint: "/usr/local/bin/aws s3 sync"
           args: "dist/ s3://react-calculator-build/ --acl public-read --delete"
