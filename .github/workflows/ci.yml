@@ -44,10 +44,9 @@ jobs:
       # - name: remove node module
       #   run: rm -rf ./node_modules
 
-      # - name: List build folder contents
-      #   run: |
-      #     find / -name react-calculator-sw.js
-      #     pwd
+      - name: List build folder contents
+        run: |
+          pwd
 
 
   deploy:
@@ -67,4 +66,4 @@ jobs:
 
       - name: Deploy to AWS
         run: |
-          aws s3 cp ./. s3://react-calculator-build --recursive
+          aws s3 cp ./naveen/build s3://react-calculator-build --recursive
