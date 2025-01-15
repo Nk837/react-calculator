@@ -47,6 +47,7 @@ jobs:
       - name: List build folder contents
         run: |
           ls /home/runner/work/react-calculator/react-calculator
+          ls-ltr build && pwd build
 
 
   deploy:
