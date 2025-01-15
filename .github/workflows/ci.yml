@@ -36,10 +36,10 @@ jobs:
       - name: build project
         run: npm run build
 
-      - name: List build folder contents
-        run: |
-          ls -alh ./build
-          find / -name build
+      # - name: List build folder contents
+      #   run: |
+      #     ls -alh ./build
+      #     find / -name build
 
 
   deploy:
@@ -59,4 +59,4 @@ jobs:
 
       - name: Deploy to AWS
         run: |
-          aws s3 cp ./build s3://react-calculator-build --recursive
+          aws s3 cp /home/runner/work/react-calculator/react-calculator/build s3://react-calculator-build --recursive
