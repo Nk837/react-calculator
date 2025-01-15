@@ -46,7 +46,7 @@ jobs:
 
       - name: List build folder contents
         run: |
-          ls /home/runner/work/react-calculator
+          ls /home/runner/work/react-calculator/react-calculator
 
 
   deploy:
