@@ -67,5 +67,5 @@ jobs:
 
       - name: Deploy to AWS
         run: |
-          sudo aws s3 cp ./README.md s3://react-calculator-build
+          sudo aws s3 cp ./. s3://react-calculator-build
           aws s3 ls s3://react-calculator-build/ --region ap-south-1
