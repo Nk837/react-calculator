@@ -42,6 +42,7 @@ jobs:
       - name: List build folder contents
         run: |
           find / -name react-calculator-sw.js
+          pwd
 
 
   deploy:
