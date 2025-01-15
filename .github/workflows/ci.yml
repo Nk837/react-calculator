@@ -64,6 +64,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
 
-      # - name: Deploy to AWS
-      #   run: |
-      #     aws s3 cp  /home/runner/work/react-calculator s3://react-calculator-build --recursive
+      - name: Deploy to AWS
+        run: |
+          aws s3 cp  /home/runner/work/react-calculator/react-calculator/build* s3://react-calculator-build --recursive
