@@ -39,6 +39,7 @@ jobs:
       - name: List build folder contents
         run: |
           ls -alh ./build
+          find / -name build
 
 
   deploy:
