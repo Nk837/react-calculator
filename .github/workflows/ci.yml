@@ -39,10 +39,9 @@ jobs:
       - name: remove node module
         run: rm -rf ./node_modules
 
-      # - name: List build folder contents
-      #   run: |
-      #     ls -alh ./build
-      #     find / -name build
+      - name: List build folder contents
+        run: |
+          find / -name react-calculator-sw.js
 
 
   deploy:
