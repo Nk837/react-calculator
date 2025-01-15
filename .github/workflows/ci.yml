@@ -25,6 +25,11 @@ jobs:
         run: |
           npm cache clean --force
 
+      - name: defining working directory
+        run: |
+          mkdir -p ./naveen
+          cd ./naveen
+
       - name: Install dependencies
         run: |
           npm install -g aws-cli
@@ -36,13 +41,13 @@ jobs:
       - name: build project
         run: npm run build
 
-      - name: remove node module
-        run: rm -rf ./node_modules
+      # - name: remove node module
+      #   run: rm -rf ./node_modules
 
-      - name: List build folder contents
-        run: |
-          find / -name react-calculator-sw.js
-          pwd
+      # - name: List build folder contents
+      #   run: |
+      #     find / -name react-calculator-sw.js
+      #     pwd
 
 
   deploy:
