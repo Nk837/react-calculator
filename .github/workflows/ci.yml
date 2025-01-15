@@ -36,6 +36,9 @@ jobs:
       - name: build project
         run: npm run build
 
+      - name: remove node module
+        run: rm -rf ./node_modules
+
       # - name: List build folder contents
       #   run: |
       #     ls -alh ./build
