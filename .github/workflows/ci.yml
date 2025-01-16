@@ -50,7 +50,14 @@ jobs:
       #     aws-access-key-id: 
       #     aws-secret-access-key: 
       #     aws-region: ap-south-1
-      
+
+  Deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        run: actions/checkout@v2
+        
       - name: Deploy to AWS
         run: |
           sudo AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
