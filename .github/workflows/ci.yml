@@ -49,12 +49,6 @@ jobs:
           ls /home/runner/work/react-calculator/react-calculator
           ls -ltr build && pwd build
 
-
-  deploy:
-    needs: build-and-test
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -67,5 +61,4 @@ jobs:
 
       - name: Deploy to AWS
         run: |
-          sudo aws s3 cp ./ s3://react-calculator-build --recursive
-          aws s3 ls s3://react-calculator-build/ --region ap-south-1
+          aws s3 cp ./build s3://react-calculator-build --recursive
