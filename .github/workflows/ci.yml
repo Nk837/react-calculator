@@ -24,12 +24,7 @@ jobs:
       - name: Clear npm cache
         run: |
           npm cache clean --force
-
-      - name: defining working directory
-        run: |
-          mkdir -p ./naveen
-          cd ./naveen
-
+      
       - name: Install dependencies
         run: |
           npm install -g aws-cli
@@ -44,10 +39,10 @@ jobs:
       - name: remove node module
         run: rm -rf /home/runner/work/react-calculator/react-calculator/node_modules
 
-      - name: List build folder contents
-        run: |
-          ls /home/runner/work/react-calculator/react-calculator
-          ls -ltr build && pwd build
+      # - name: List build folder contents
+      #   run: |
+      #     ls /home/runner/work/react-calculator/react-calculator
+      #     ls -ltr build && pwd build
 
       - name: Set up AWS CLI
         uses: aws-actions/configure-aws-credentials@v4
@@ -55,7 +50,13 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
-
+          
       - name: Deploy to AWS
         run: |
-          sudo aws s3 cp ./build/ s3://react-calculator-build --recursive
+          sudo AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
+               AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
+               AWS_DEFAULT_REGION=ap-south-1 \
+               aws s3 cp ./build/ s3://react-calculator-build --recursive
+        
+
+      
