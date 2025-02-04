@@ -37,3 +37,7 @@ resource "aws_s3_bucket_website_configuration" "test" {
 output "website_url" {
   value = aws_s3_bucket_website_configuration.test.website_endpoint
 }
+
+output "bucket_name" {
+  value = aws_s3_bucket.test.bucket_name
+}
